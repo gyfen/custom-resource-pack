@@ -1,0 +1,13 @@
+{
+    "pack": {
+        "description": {
+            "text": "§c§nCustom resource pack§r§h",
+            "italic": true,
+            "color": "gold",
+            "clickEvent": {
+                "action": "open_url",
+                "value": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        }
+    }
+}
