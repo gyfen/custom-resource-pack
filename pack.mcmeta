@@ -1,13 +1,6 @@
 {
     "pack": {
-        "description": {
-            "text": "§c§nCustom resource pack§r§h",
-            "italic": true,
-            "color": "gold",
-            "clickEvent": {
-                "action": "open_url",
-                "value": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            }
-        }
+        "pack_format": 34,
+        "description": "\u00a76Server resource pack\n\u00a7esponsored by r & g"
     }
 }
