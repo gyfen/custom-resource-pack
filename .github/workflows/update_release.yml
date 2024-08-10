@@ -22,6 +22,7 @@ jobs:
 
       - name: Delete old release
         run: gh release delete pack
+        continue-on-error: true # continue if the tag doesnt exist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
