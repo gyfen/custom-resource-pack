@@ -1,4 +1,4 @@
-name: Update Release
+name: Update Release with ZIP
 
 on:
   push:
@@ -6,25 +6,37 @@ on:
       - main
 
 jobs:
-  create_release:
+  update-release:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Create zip of the repository
-      run: zip -r repo.zip .
+      - name: Create ZIP file
+        run: |
+          git archive --format zip --output ./repo.zip HEAD
 
-    - name: Get the latest tag
-      id: get_tag
-      run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+      - name: Get the release ID for the "latest" tag
+        id: get_release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = await github.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: 'latest'
+            });
+            return release.data.upload_url;
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Create or update GitHub Release
-      id: create_release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: ${{ steps.get_tag.outputs.tag }}
-        files: repo.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload the ZIP file to the release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.get_release.outputs.result }}
+          asset_path: ./repo.zip
+          asset_name: pack.zip
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
