@@ -1,3 +1,3 @@
 # Custom resource pack
 ## Features
-* Rats
+* Silverfish are now rats.
