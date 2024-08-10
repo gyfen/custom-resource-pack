@@ -1,3 +1,3 @@
 # Custom resource pack
-## Description
-rats
+## Features
+* Rats
