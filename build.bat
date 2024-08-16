@@ -1,4 +1,6 @@
-@REM Include the absolute path to your resource pack folder in double quotes in build_path.txt
+@REM Packs the resources and moves it to the folder specified in in build_path.txt
+@REM Even works without unloading the resource pack; simple use F3 + T in game to refresh the pack.
+@REM build_path.txt should the path to you resource packs folder on the first line in double quotes.
 @REM e.g. "C:\Users\name\AppData\Roaming\.minecraft\resourcepacks"
 
 @echo off
