@@ -5059,7 +5059,7 @@
   "recipe.notFound": "Unknown recipe: %s",
   "recipe.toast.description": "Check your recipe book",
   "recipe.toast.title": "New Recipes Unlocked!",
-  "record.nowPlaying": "Now Playing: %s",
+  "record.nowPlaying": "",
   "resourcePack.broken_assets": "BROKEN ASSETS DETECTED",
   "resourcepack.downloading": "Downloading Resource Pack",
   "resourcePack.high_contrast.name": "High Contrast",
