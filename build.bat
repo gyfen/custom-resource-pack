@@ -26,8 +26,15 @@ goto:eoerr
     exit
 :eoerr
 
-@REM Create zip and move it to the destination
+@set output=SUCCESS: Created pack_dev.zip at %build_path%.
+
+@REM Create zip
 tar -caf pack_dev.zip pack.png pack.mcmeta assets
-move pack_dev.zip %build_path%
+
+@REM Move the zip to the destination. If error, log the error and delete the log file.
+move pack_dev.zip %build_path% || (
+    echo ERROR: Failed to move file, is it already in use?
+    exit
+)
 
 echo SUCCESS: Created pack_dev.zip at %build_path%.
