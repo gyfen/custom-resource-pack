@@ -1,6 +1,7 @@
 {
     "pack": {
-        "pack_format": 55,
+        "min_format": 84,
+        "max_format": 9999,
         "description": "\u00a76Server resource pack\n\u00a7esponsored by r & g"
     }
 }
